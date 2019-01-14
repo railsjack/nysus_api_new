@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Submission Details</p>
+    <p>
+      Name: <%= @user["name"]%><br/>
+      Title: <%= @user["title"] %><br/>
+      Phone: <%= @user["phone"] %><br/>
+      Best Time to Call: <%= @user["time"] %><br/>
+    </p>
+    <p>
+      The user's email is <a href="mailto:<%= @user['email'] %>"><%= @user['email'] %></a>
+    </p>
+    <p>
+      Establishment Details:
+    </p>
+    <p>
+      <%= @establishment.name %><br/>
+      <%= @establishment.address_1 %><br/>
+      <%= @establishment.city %>, <%= @establishment.state %> <%= @establishment.zipcode %><br/>
+      ID: <%= @establishment.id %>
+    </p>
+  </body>
+</html>

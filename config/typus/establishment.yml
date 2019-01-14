@@ -1,0 +1,12 @@
+# Use the README file as a reference to customize settings.
+
+Establishment:
+  fields:
+    default: id, name, address_1, city, state, zipcode
+    form: name, address_1, address_2, city, state, zipcode, phone, website, facebook_url, twitter_url, youtube_url, logo_url, description, featured, featured_text, establishment_categories, user
+  relationships: establishment_categories, user, specials, events
+  search: =name
+  filters: city, state, zipcode
+  application: Application
+  options:
+    per_page: 25

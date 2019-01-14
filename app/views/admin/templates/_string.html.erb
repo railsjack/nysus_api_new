@@ -1,0 +1,46 @@
+<div class="control-group" id="<%= attribute_id %>">
+	<% if label_text == "Price" %>
+	<%= form.label attribute, "Cover/Admission Price", { :class => "control-label" } %>
+	<% elsif label_text == "Title" %>
+		<% if @resource.to_s == "Special" %>
+			<%= form.label attribute, "Name of Special", { :class => "control-label" } %>
+		<% elsif @resource.to_s == "Event" %>
+			<%= form.label attribute, "Title/Name of Event", { :class => "control-label" } %>
+		<% else %>
+			<%= form.label attribute, label_text, { :class => "control-label" } %>
+		<% end %>
+	<% else %>
+  <%= form.label attribute, label_text, { :class => "control-label" } %>
+  	<% end %>
+  <div class="controls">
+  	<% if attribute.to_s != "all_day_event" %>
+    	<%= form.text_field attribute, options %>
+    <% else %>
+    	<input type="checkbox" />
+    	<script>
+    	$(document).ready(function(){
+    		var start_time = $("#special_start_time").val().split(" ");
+    		var end_time = $("#special_end_time").val().split(" ");
+    		if ( start_time[0] === end_time[0] && start_time[1] === "00:00:00" && end_time[1] === "23:55:00"){
+    			$("input:checkbox").attr("checked", true);
+    		}
+
+    		$("input:checkbox").click(function(event){
+    			var target = $(event.currentTarget);
+    			var start_time = $("#special_start_time").val().split(" ");
+    			var end_time = $("#special_end_time").val().split(" ");
+    			if (target.attr("checked") === undefined){
+    				$("#special_start_time").val(start_time[0] + " 12:00:00");
+    				$("#special_end_time").val(start_time[0] + " 12:00:00");
+    			}
+    			else{ //make the event all day
+    				$("#special_start_time").val(start_time[0] + " 00:00:00");
+    				$("#special_end_time").val(start_time[0] + " 23:55:00");
+
+    			}
+    		});
+    	});
+       	</script>
+    <% end %>
+  </div>
+</div>

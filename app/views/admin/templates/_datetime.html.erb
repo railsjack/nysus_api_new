@@ -1,0 +1,18 @@
+<div class="control-group" id="<%= attribute_id %>">
+  <%= form.label attribute, label_text, { :class => "control-label" } %>
+  <div class="controls form-group">
+  	<div class='input-group date datetimepicker'>
+	    <%#= form.datetime_select attribute, options, html_options %>
+	    <%= form.text_field attribute, options %>
+	    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+	</div>
+  </div>
+</div>
+<script>
+console.log("making datetimepicker live");
+  $(".datetimepicker").datetimepicker({
+    autoclose: true,
+    todayBtn: true,
+    showMeridian: true
+  });
+</script>

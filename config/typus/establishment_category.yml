@@ -1,0 +1,10 @@
+# Use the README file as a reference to customize settings.
+
+EstablishmentCategory:
+  fields:
+    default: title, grouporder, sort_order
+    form: title, grouporder, sort_order
+    show: title, grouporder, sort_order
+    list: title, grouporder, sort_order
+  relationships: 
+  application: Application
